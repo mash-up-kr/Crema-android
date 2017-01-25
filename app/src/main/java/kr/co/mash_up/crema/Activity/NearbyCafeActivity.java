@@ -1,4 +1,4 @@
-package kr.co.mash_up.crema;
+package kr.co.mash_up.crema.Activity;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -6,9 +6,12 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.StaggeredGridLayoutManager;
 
 import java.util.ArrayList;
+
+import kr.co.mash_up.crema.Adapter.CafeListAdapter;
+import kr.co.mash_up.crema.Model.CafeList;
+import kr.co.mash_up.crema.R;
 
 /**
  * Created by sun on 2017. 1. 24..

@@ -1,4 +1,4 @@
-package kr.co.mash_up.crema;
+package kr.co.mash_up.crema.Model;
 
 /**
  * Created by sun on 2017. 1. 24..
