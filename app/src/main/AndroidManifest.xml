@@ -2,6 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="kr.co.mash_up.crema">
 
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -22,13 +25,17 @@
             android:theme="@android:style/Theme.NoTitleBar">
         </activity>
 
-        <activity android:name=".Activity.LoginActivity">
+        <activity
+            android:name=".Activity.LoginActivity">
         </activity>
 
-        <activity android:name=".Activity.SigninActivity">
+        <activity
+            android:name=".Activity.SigninActivity">
         </activity>
 
-        <activity android:name=".Activity.NearbyCafeActivity">
+        <activity
+            android:name=".Activity.NearbyCafeActivity"
+            android:theme="@style/AppTheme.NoActionBar">
         </activity>
     </application>
 
