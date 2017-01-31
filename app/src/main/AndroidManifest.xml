@@ -37,6 +37,8 @@
             android:name=".Activity.NearbyCafeActivity"
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
+
+        <activity android:name=".Activity.WriteReviewActivity"></activity>
     </application>
 
 </manifest>

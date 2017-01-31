@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView  xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+        <Button
+            android:id="@+id/btn_addimage"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:text="plus button"/>
+        <ImageView
+            android:id="@+id/iv_img1"
+            android:layout_width="100dp"
+            android:layout_height="100dp" />
+        <ImageView
+            android:id="@+id/iv_img2"
+            android:layout_width="100dp"
+            android:layout_height="100dp" />
+        <ImageView
+            android:id="@+id/iv_img3"
+            android:layout_width="100dp"
+            android:layout_height="100dp" />
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="상세내용 선택"/>
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="150dp">
+        <TableRow>
+            <CheckBox
+                android:text="와이파이"/>
+            <CheckBox
+                android:text="흡연실"/>
+        </TableRow>
+        <TableRow>
+            <CheckBox
+                android:text="콘센트"/>
+            <CheckBox
+                android:text="세미나룸"/>
+        </TableRow>
+    </TableLayout>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="카페 내부"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="카페 규모"/>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+
+        <ToggleButton
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
+            android:text="큼"/>
+        <ToggleButton
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
+            android:text="보통"/>
+        <ToggleButton
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
+            android:text="작음"/>
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="자리 편의성"/>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+
+        <ToggleButton
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
+            android:text="상"/>
+        <ToggleButton
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
+            android:text="중"/>
+        <ToggleButton
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
+            android:text="하"/>
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="카페 분위"/>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+
+        <ToggleButton
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
+            android:text="조용함"/>
+        <ToggleButton
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
+            android:text="보통"/>
+        <ToggleButton
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
+            android:text="시끄러움"/>
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="옵션/기타"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="화장실 위생상태"/>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+
+        <ToggleButton
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
+            android:text="깨끗함"/>
+        <ToggleButton
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
+            android:text="보통"/>
+        <ToggleButton
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
+            android:text="더러움"/>
+    </LinearLayout>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:hint="기타 후기 작성"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="작성 완료"/>
+
+
+</LinearLayout>
+    </ScrollView>
