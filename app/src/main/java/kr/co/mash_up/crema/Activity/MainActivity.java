@@ -1,4 +1,4 @@
-package kr.co.mash_up.crema.Activity;
+package kr.co.mash_up.crema.activity;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;

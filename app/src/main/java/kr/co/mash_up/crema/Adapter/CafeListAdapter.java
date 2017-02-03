@@ -1,4 +1,4 @@
-package kr.co.mash_up.crema.Adapter;
+package kr.co.mash_up.crema.adapter;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;

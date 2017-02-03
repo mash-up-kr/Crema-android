@@ -1,6 +1,5 @@
-package kr.co.mash_up.crema.Activity;
+package kr.co.mash_up.crema.activity;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
