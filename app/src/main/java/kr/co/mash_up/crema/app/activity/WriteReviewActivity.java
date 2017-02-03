@@ -1,4 +1,4 @@
-package kr.co.mash_up.crema.activity;
+package kr.co.mash_up.crema.app.activity;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;

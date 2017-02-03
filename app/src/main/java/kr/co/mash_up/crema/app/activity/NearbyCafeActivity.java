@@ -1,4 +1,4 @@
-package kr.co.mash_up.crema.activity;
+package kr.co.mash_up.crema.app.activity;
 
 import android.Manifest;
 import android.app.Activity;
@@ -24,7 +24,7 @@ import android.view.View;
 
 import java.util.ArrayList;
 
-import kr.co.mash_up.crema.adapter.CafeListAdapter;
+import kr.co.mash_up.crema.app.adapter.CafeListAdapter;
 import kr.co.mash_up.crema.PermissionRequester;
 import kr.co.mash_up.crema.R;
 import kr.co.mash_up.crema.model.cafe.CafeModel;

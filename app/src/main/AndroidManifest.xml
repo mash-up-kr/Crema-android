@@ -12,7 +12,7 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activity.MainActivity">
+        <activity android:name=".app.activity.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -20,26 +20,26 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".activity.SplashActivity"
+        <activity android:name=".app.activity.SplashActivity"
             android:screenOrientation="portrait"
             android:configChanges="orientation|keyboardHidden"
             android:theme="@android:style/Theme.NoTitleBar">
         </activity>
 
         <activity
-            android:name=".activity.LoginActivity">
+            android:name=".app.activity.LoginActivity">
         </activity>
 
         <activity
-            android:name=".activity.SigninActivity">
+            android:name=".app.activity.SigninActivity">
         </activity>
 
         <activity
-            android:name=".activity.NearbyCafeActivity"
+            android:name=".app.activity.NearbyCafeActivity"
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
 
-        <activity android:name=".activity.WriteReviewActivity"></activity>
+        <activity android:name=".app.activity.WriteReviewActivity"></activity>
     </application>
 
 </manifest>
