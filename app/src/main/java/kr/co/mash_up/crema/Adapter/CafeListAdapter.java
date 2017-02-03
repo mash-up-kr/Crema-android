@@ -12,8 +12,8 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-import kr.co.mash_up.crema.Model.CafeList;
 import kr.co.mash_up.crema.R;
+import kr.co.mash_up.crema.model.cafe.CafeModel;
 
 /**
  * Created by sun on 2017. 1. 24..
@@ -21,12 +21,12 @@ import kr.co.mash_up.crema.R;
 
 public class CafeListAdapter extends RecyclerView.Adapter<CafeListAdapter.ViewHolder>{
     private Context context;
-    private ArrayList<CafeList> mItems;
+    private ArrayList<CafeModel> mItems;
 
     // Allows to remember the last item shown on screen
     private int lastPosition = -1;
 
-    public CafeListAdapter(ArrayList<CafeList> items, Context mContext)
+    public CafeListAdapter(ArrayList<CafeModel> items, Context mContext)
     {
         mItems = items;
         context = mContext;
@@ -46,10 +46,10 @@ public class CafeListAdapter extends RecyclerView.Adapter<CafeListAdapter.ViewHo
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
 
-        holder.main.setImageResource(mItems.get(position).getImg());
-        holder.name.setText(mItems.get(position).getName());
-        holder.addr.setText(mItems.get(position).getAddr());
-        holder.hours.setText(mItems.get(position).getHours());
+//        holder.main.setImageResource(mItems.get(position).getImg());
+//        holder.name.setText(mItems.get(position).getName());
+//        holder.addr.setText(mItems.get(position).getAddr());
+//        holder.hours.setText(mItems.get(position).getHours());
 
         setAnimation(holder.main, position);
     }
