@@ -1,3 +1,9 @@
+.idea/
+.DS_Store
+
+io/realm/*.java
+
+
 # Built application files
 *.apk
 *.ap_
@@ -34,7 +40,9 @@ captures/
 
 # Intellij
 *.iml
-.idea/workspace.xml
+*\$\$ViewInjector.java
+*\$\$ViewBinder.java
+.idea/*
 
 # Keystore files
 *.jks
