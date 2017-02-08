@@ -13,6 +13,10 @@ public class UserLoginCommand {
     @SerializedName("pw")
     private String pw;
 
+    public UserLoginCommand(String email, String pw) {
+        this.email = email;
+        this.pw = pw;
+    }
 
     public String getEmail() {
         return email;

@@ -8,6 +8,7 @@ import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
+import rx.Observable;
 
 /**
  * Created by bigstark on 2017. 2. 3..
@@ -16,14 +17,14 @@ import retrofit2.http.POST;
 public interface UserService {
 
     @POST("user/register")
-    Call<AccessTokenModel> register(@Body UserRegisterCommand command);
+    Observable<AccessTokenModel> register(@Body UserRegisterCommand command);
 
 
     @POST("user/login")
-    Call<AccessTokenModel> login(@Body UserLoginCommand command);
+    Observable<AccessTokenModel> login(@Body UserLoginCommand command);
 
 
     @GET("user/me")
-    Call<UserModel> getMe();
+    Observable<UserModel> getMe();
 
 }

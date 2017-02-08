@@ -1,4 +1,4 @@
-package kr.co.mash_up.crema.app.activity;
+package kr.co.mash_up.crema.app.sign;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -12,7 +12,7 @@ import kr.co.mash_up.crema.R;
  * Created by sun on 2017. 1. 25..
  */
 
-public class SigninActivity extends AppCompatActivity{
+public class SignUpActivity extends AppCompatActivity{
 
     EditText username;
     EditText password;

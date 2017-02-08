@@ -2,8 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="kr.co.mash_up.crema">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
     <application
         android:name=".CremaApplication"
@@ -20,24 +20,29 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".app.activity.SplashActivity"
-            android:screenOrientation="portrait"
+        <activity
+            android:name=".app.activity.SplashActivity"
             android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait"
             android:theme="@android:style/Theme.NoTitleBar">
+
+            <intent-filter>
+
+                <action android:name="kr.co.mash_up.cream.SplashActivity" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+
+            </intent-filter>
+
         </activity>
 
-        <activity
-            android:name=".app.activity.LoginActivity">
-        </activity>
+        <activity android:name=".app.sign.SignInActivity"></activity>
 
-        <activity
-            android:name=".app.activity.SigninActivity">
-        </activity>
+        <activity android:name=".app.sign.SignUpActivity"></activity>
 
         <activity
             android:name=".app.activity.NearbyCafeActivity"
-            android:theme="@style/AppTheme.NoActionBar">
-        </activity>
+            android:theme="@style/AppTheme.NoActionBar"></activity>
 
         <activity android:name=".app.activity.WriteReviewActivity"></activity>
     </application>

@@ -20,12 +20,12 @@
         android:layout_height="wrap_content"
         android:hint="비밀번호"/>
     <EditText
-        android:id="@+id/et_passwordcheck"
+        android:id="@+id/et_password_check"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="비밀번호 재확인"/>
     <Button
-        android:id="@+id/btn_signin"
+        android:id="@+id/btn_sign_in"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="회원가입"/>
