@@ -33,3 +33,17 @@ sign_in_margin_horizontal
 sign_in_margin_username_password
 sign_in_padding_username
 ```
+
+## Dependency Injector
+
+ButterKnife 를 사용하기로 한다.
+
+
+## Component Global Variable 네이밍 규칙
+
+(Component 약자)(컴포넌트 성질)
+
+etUsername
+btnPost
+rvSearch
+...
