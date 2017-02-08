@@ -1,5 +1,10 @@
 # Crema-android
 
+## Commit - Push 
+
+gitflow를 따르기로 한다.
+
+
 ## XML 네이밍 규칙
 
 ```
