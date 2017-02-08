@@ -1,9 +1,9 @@
 package kr.co.mash_up.crema.model.cafe;
 
-import com.mashup.crema.backend.model.image.ImageResourceModel;
-import com.mashup.crema.backend.model.user.UserModel;
-
 import java.util.Date;
+
+import kr.co.mash_up.crema.model.image.ImageResourceModel;
+import kr.co.mash_up.crema.model.user.UserModel;
 
 /**
  * Created by bigstark on 2017. 2. 1..

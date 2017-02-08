@@ -1,7 +1,8 @@
 package kr.co.mash_up.crema.model.cafe;
 
-import com.mashup.crema.backend.model.cafe.meta.CafeMetaModel;
-import com.mashup.crema.backend.model.image.ImageResourceModel;
+
+import kr.co.mash_up.crema.model.cafe.meta.CafeMetaModel;
+import kr.co.mash_up.crema.model.image.ImageResourceModel;
 
 /**
  * Created by bigstark on 2017. 2. 1..

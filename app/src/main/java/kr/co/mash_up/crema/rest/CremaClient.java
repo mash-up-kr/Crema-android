@@ -8,6 +8,7 @@ import kr.co.mash_up.crema.util.GsonLoader;
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
+import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 /**
@@ -56,6 +57,7 @@ public class CremaClient {
                 .baseUrl(DEV_URL)
                 .client(okHttpClient)
                 .addConverterFactory(GsonConverterFactory.create(GsonLoader.getInstance().getGson()))
+                .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
                 .build();
     }
 

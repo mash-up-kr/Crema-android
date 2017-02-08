@@ -14,6 +14,11 @@ public class UserRegisterCommand {
     private String pw;
 
 
+    public UserRegisterCommand(String email, String pw) {
+        this.email = email;
+        this.pw = pw;
+    }
+
     public String getEmail() {
         return email;
     }

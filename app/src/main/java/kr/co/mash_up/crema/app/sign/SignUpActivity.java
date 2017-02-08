@@ -22,7 +22,7 @@ public class SignUpActivity extends AppCompatActivity{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.signin);
+        setContentView(R.layout.sign_up_main);
 
         init();
 
@@ -35,10 +35,10 @@ public class SignUpActivity extends AppCompatActivity{
     }
 
     public void init(){
-        username = (EditText)findViewById(R.id.et_username);
-        password = (EditText)findViewById(R.id.et_password);
-        passwordcheck = (EditText)findViewById(R.id.et_passwordcheck);
-        signin = (Button)findViewById(R.id.btn_signin);
+        username = (EditText)findViewById(R.id.et_sign_in_email);
+        password = (EditText)findViewById(R.id.et_sign_in_password);
+        passwordcheck = (EditText)findViewById(R.id.et_password_check);
+        signin = (Button)findViewById(R.id.btn_sign_in_sign_up);
 
         //
     }

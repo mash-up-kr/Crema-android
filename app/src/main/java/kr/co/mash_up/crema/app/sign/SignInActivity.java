@@ -1,11 +1,9 @@
 package kr.co.mash_up.crema.app.sign;
 
-import android.app.Activity;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.widget.EditText;
-import android.widget.Toast;
 
 import com.bigstark.cycler.CyclerActivity;
 
@@ -13,7 +11,18 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import kr.co.mash_up.crema.R;
-import kr.co.mash_up.crema.app.activity.NearbyCafeActivity;
+import kr.co.mash_up.crema.UserManager;
+import kr.co.mash_up.crema.model.error.ErrorModel;
+import kr.co.mash_up.crema.model.user.AccessTokenModel;
+import kr.co.mash_up.crema.model.user.UserModel;
+import kr.co.mash_up.crema.model.user.command.UserLoginCommand;
+import kr.co.mash_up.crema.rest.CremaClient;
+import kr.co.mash_up.crema.rest.user.UserService;
+import kr.co.mash_up.crema.util.Defines;
+import kr.co.mash_up.crema.util.ToastUtil;
+import rx.Observer;
+import rx.android.schedulers.AndroidSchedulers;
+import rx.schedulers.Schedulers;
 
 /**
  * Created by sun on 2017. 1. 25..
@@ -21,54 +30,80 @@ import kr.co.mash_up.crema.app.activity.NearbyCafeActivity;
 
 public class SignInActivity extends CyclerActivity {
 
-    @BindView(R.id.et_username) EditText username;
-    @BindView(R.id.et_password) EditText password;
+    @BindView(R.id.et_sign_in_email) EditText etEmail;
+    @BindView(R.id.et_sign_in_password) EditText etPassword;
 
-    @OnClick(R.id.btn_signin)
-    void onSignInClicked() {
-        startActivity(new Intent(SignInActivity.this, SignUpActivity.class));
+    @OnClick(R.id.btn_sign_in_sign_up)
+    void onSignUpClicked() {
+        Intent intent = new Intent(Defines.INTENT_SIGN_UP_ACTIVITY);
+        startActivity(intent);
     }
 
-    @OnClick(R.id.btn_login)
+    @OnClick(R.id.btn_sign_in_login)
     void onLoginClicked() {
-        if (already_login()) {
-            startActivity(new Intent(SignInActivity.this, NearbyCafeActivity.class));
-            finish();
+        String email = etEmail.getText().toString();
+        String password = etPassword.getText().toString();
+
+        if (TextUtils.isEmpty(email)) {
+            ToastUtil.toast("이메일을 입력해주세요.");
+            return;
         }
 
-        SharedPreferences settings=getSharedPreferences("settings", Activity.MODE_PRIVATE);
-        String name = username.getText().toString();
-        String pw = password.getText().toString();
-
-        //todo 서버에서 로그인 쳌쳌
-        if (true) {
-            SharedPreferences.Editor editor = settings.edit();
-            editor.putString("username", username.getText().toString());
-            editor.putString("password", password.getText().toString());
-
-            startActivity(new Intent(SignInActivity.this, NearbyCafeActivity.class));
-            finish();
-        } else {
-            Toast.makeText(SignInActivity.this, "잘못된 아이디와 비밀번호를 입력하셨습니다", Toast.LENGTH_LONG).show();
+        if (TextUtils.isEmpty(password)) {
+            ToastUtil.toast("패스워드를 입력해주세요.");
+            return;
         }
+
+
+        UserLoginCommand command = new UserLoginCommand(email, password);
+
+        CremaClient.getService(UserService.class)
+                .login(command)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Observer<AccessTokenModel>() {
+                    @Override
+                    public void onCompleted() {}
+
+                    @Override
+                    public void onError(Throwable e) { // something error
+                        // TODO 에러 처리
+                    }
+
+                    @Override
+                    public void onNext(AccessTokenModel accessTokenModel) { // success
+                        // save access token. It is used in authorization
+                        UserManager.getInstance().saveAccessToken(accessTokenModel);
+
+                        getMe();
+                    }
+                });
     }
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.login);
+        setContentView(R.layout.sign_in_main);
         setUnbinder(ButterKnife.bind(this));
     }
 
-    public boolean already_login(){
-        SharedPreferences settings=getSharedPreferences("settings", Activity.MODE_PRIVATE);
 
-        String username = settings.getString("username","");
-        String password = settings.getString("password","");
-        if(username.equals("") || password.equals(""))
-            return false;
-        else
-            return true;
+    private void getMe() {
+        UserManager.getInstance().getMe(new UserManager.MeCallback() {
+            @Override
+            public void onSuccess2getMe(UserModel user) {
+                // start home activity
+
+                Intent intent = new Intent(Defines.INTENT_HOME_ACTIVITY);
+                startActivity(intent);
+                finish();
+            }
+
+            @Override
+            public void onFail2getMe(ErrorModel error) {
+                // TODO 에러 처리
+            }
+        });
     }
 }
