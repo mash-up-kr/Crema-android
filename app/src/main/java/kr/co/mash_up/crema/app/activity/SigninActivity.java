@@ -39,5 +39,7 @@ public class SigninActivity extends AppCompatActivity{
         password = (EditText)findViewById(R.id.et_password);
         passwordcheck = (EditText)findViewById(R.id.et_passwordcheck);
         signin = (Button)findViewById(R.id.btn_signin);
+
+        //
     }
 }
