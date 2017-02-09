@@ -2,19 +2,17 @@ package kr.co.mash_up.crema.app.sign;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
-import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.bigstark.cycler.CyclerActivity;
+
 import butterknife.BindView;
-import butterknife.OnCheckedChanged;
+import butterknife.ButterKnife;
 import butterknife.OnClick;
 import kr.co.mash_up.crema.R;
-import kr.co.mash_up.crema.UserManager;
 import kr.co.mash_up.crema.model.user.AccessTokenModel;
-import kr.co.mash_up.crema.model.user.command.UserLoginCommand;
 import kr.co.mash_up.crema.model.user.command.UserRegisterCommand;
 import kr.co.mash_up.crema.rest.CremaClient;
 import kr.co.mash_up.crema.rest.user.UserService;
@@ -28,11 +26,11 @@ import rx.schedulers.Schedulers;
  * Created by sun on 2017. 1. 25..
  */
 
-public class SignUpActivity extends AppCompatActivity{
+public class SignUpActivity extends CyclerActivity {
 
     @BindView(R.id.et_sign_up_email) EditText etEmail;
-    @BindView(R.id.et_password) EditText etPassword;
-    @BindView(R.id.et_password_check) EditText etPasswordCheck;
+    @BindView(R.id.et_sign_up_password) EditText etPassword;
+    @BindView(R.id.et_sign_up_password_check) EditText etPasswordCheck;
     @BindView(R.id.btn_sign_up_sign_up) Button btnSingUp;
 
     @OnClick(R.id.btn_sign_up_sign_up)
@@ -55,6 +53,7 @@ public class SignUpActivity extends AppCompatActivity{
         }
         if(!pw.equals(pwCheck)){
             ToastUtil.toast("비밀번호와 비밀번호 확인을 일치시켜 주세요.");
+            return;
         }
 
         UserRegisterCommand command = new UserRegisterCommand(email, pw);
@@ -76,8 +75,9 @@ public class SignUpActivity extends AppCompatActivity{
                     public void onNext(AccessTokenModel accessTokenModel) { // success
                         // save access token. It is used in authorization
 
-                        Intent intent = new Intent(Defines.INTENT_SIGN_UP_ACTIVITY);
+                        Intent intent = new Intent(Defines.INTENT_SIGN_IN_ACTIVITY);
                         startActivity(intent);
+                        finish();
                     }
                 });
     }
@@ -86,5 +86,6 @@ public class SignUpActivity extends AppCompatActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.sign_up_main);
+        setUnbinder(ButterKnife.bind(this));
     }
 }
