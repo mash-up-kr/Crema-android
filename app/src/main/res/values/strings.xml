@@ -12,9 +12,4 @@
     <string name="sign_in_btn_login">로그인</string>
     <string name="sign_in_btn_sign_up">간편 회원가입</string>
 
-    <string name="sign_up_hint_email">E-mail</string>
-    <string name="sign_up_hint_password">비밀번호</string>
-    <string name="sign_up_hint_password_check">비밀번호 재확인</string>
-    <string name="sign_up_btn_sign_up">회원가입</string>
-
 </resources>

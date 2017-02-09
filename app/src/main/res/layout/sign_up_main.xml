@@ -5,26 +5,30 @@
     android:layout_height="match_parent"
     android:gravity="center">
 
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/cafe_main"/>
     <EditText
-        android:id="@+id/et_sign_up_email"
+        android:id="@+id/et_sign_in_email"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/sign_up_hint_email"/>
+        android:hint="Username(e-mail)"/>
     <EditText
-        android:id="@+id/et_sign_up_password"
+        android:id="@+id/et_sign_in_password"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/sign_up_hint_password"/>
+        android:hint="비밀번호"/>
     <EditText
-        android:id="@+id/et_sign_up_password_check"
+        android:id="@+id/et_password_check"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/sign_up_hint_password_check"/>
+        android:hint="비밀번호 재확인"/>
     <Button
-        android:id="@+id/btn_sign_up_sign_up"
+        android:id="@+id/btn_sign_in_sign_up"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/sign_up_btn_sign_up"/>
+        android:text="회원가입"/>
 
 
 </LinearLayout>
