@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.support.annotation.BinderThread;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
@@ -22,18 +23,31 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
-import java.util.ArrayList;
+import com.bigstark.cycler.CyclerActivity;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import butterknife.BindDimen;
+import butterknife.BindDrawable;
+import butterknife.BindView;
+import butterknife.BindViews;
 import kr.co.mash_up.crema.app.adapter.CafeListAdapter;
 import kr.co.mash_up.crema.PermissionRequester;
 import kr.co.mash_up.crema.R;
+import kr.co.mash_up.crema.model.BaseListModel;
 import kr.co.mash_up.crema.model.cafe.CafeModel;
+import kr.co.mash_up.crema.rest.CremaClient;
+import kr.co.mash_up.crema.rest.cafe.CafeService;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 /**
  * Created by sun on 2017. 1. 24..
  */
 
-public class NearbyCafeActivity extends AppCompatActivity
+public class NearbyCafeActivity extends CyclerActivity
         implements NavigationView.OnNavigationItemSelectedListener{
 
     Context mContext;
@@ -41,7 +55,6 @@ public class NearbyCafeActivity extends AppCompatActivity
     RecyclerView recyclerView;
     RecyclerView.Adapter adapter;
     RecyclerView.LayoutManager layoutManager;
-
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -86,22 +99,29 @@ public class NearbyCafeActivity extends AppCompatActivity
 
         ArrayList<CafeModel> items = new ArrayList<>();
 
-//        items.add(new CafeList(R.drawable.cafe_main, "CAFE SEOJONG1", "서울시 강남구 역삼동 12-3", "평일 07:00 - 24:00\n주말 09:00 - 18:00"));
-//        items.add(new CafeList(R.drawable.cafe_main, "CAFE SEOJONG2", "서울시 강남구 역삼동 12-3", "평일 07:00 - 24:00\n주말 09:00 - 18:00"));
-//        items.add(new CafeList(R.drawable.cafe_main, "CAFE SEOJONG3", "서울시 강남구 역삼동 12-3", "평일 07:00 - 24:00\n주말 09:00 - 18:00"));
-//        items.add(new CafeList(R.drawable.cafe_main, "CAFE SEOJONG4", "서울시 강남구 역삼동 12-3", "평일 07:00 - 24:00\n주말 09:00 - 18:00"));
-//        items.add(new CafeList(R.drawable.cafe_main, "CAFE SEOJONG5", "서울시 강남구 역삼동 12-3", "평일 07:00 - 24:00\n주말 09:00 - 18:00"));
+        CremaClient.getService(CafeService.class)
+                .getCafes(30, 30, "1")
+                .enqueue(new Callback<BaseListModel<CafeModel>>() {
+                    @Override
+                    public void onResponse(Call<BaseListModel<CafeModel>> call, Response<BaseListModel<CafeModel>> response) {
+                        BaseListModel<CafeModel> body = response.body();
+                        List<CafeModel> datas = body.getDatas();
 
-        // StaggeredGrid 레이아웃을 사용한다
-        //layoutManager = new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL);
+                        adapter = new CafeListAdapter(datas,mContext);
+                        recyclerView.setAdapter(adapter);
+                    }
+
+                    @Override
+                    public void onFailure(Call<BaseListModel<CafeModel>> call, Throwable t) {
+
+                    }
+                });
+
         layoutManager = new LinearLayoutManager(this);
-        //layoutManager = new GridLayoutManager(this,3);
 
         // 지정된 레이아웃매니저를 RecyclerView에 Set 해주어야한다.
         recyclerView.setLayoutManager(layoutManager);
 
-        adapter = new CafeListAdapter(items,mContext);
-        recyclerView.setAdapter(adapter);
 
     }
 
@@ -173,7 +193,5 @@ public class NearbyCafeActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
-
-
     }
 }
