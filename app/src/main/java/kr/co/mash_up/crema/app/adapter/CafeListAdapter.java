@@ -87,10 +87,10 @@ public class CafeListAdapter extends RecyclerView.Adapter<CafeListAdapter.ViewHo
 
         public ViewHolder(View view) {
             super(view);
-            main=(ImageView)view.findViewById(R.id.iv_main) ;
-            name=(TextView)view.findViewById(R.id.tv_main);
-            addr=(TextView)view.findViewById(R.id.tv_addr);
-            hours=(TextView)view.findViewById(R.id.tv_hours);
+            main=(ImageView)view.findViewById(R.id.iv_review_icon_main_img) ;
+            name=(TextView)view.findViewById(R.id.tv_review_icon_name);
+            addr=(TextView)view.findViewById(R.id.tv_review_icon_addr);
+            hours=(TextView)view.findViewById(R.id.tv_review_icon_hours);
         }
     }
 

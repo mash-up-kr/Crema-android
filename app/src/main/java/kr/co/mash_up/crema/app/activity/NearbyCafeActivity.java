@@ -94,7 +94,7 @@ public class NearbyCafeActivity extends CyclerActivity
 
         mContext = getApplicationContext();
 
-        recyclerView = (RecyclerView) findViewById(R.id.recyclerview);
+        recyclerView = (RecyclerView) findViewById(R.id.rv_nearby_recyclerview);
         recyclerView.setHasFixedSize(true);
 
         ArrayList<CafeModel> items = new ArrayList<>();
@@ -127,7 +127,7 @@ public class NearbyCafeActivity extends CyclerActivity
 
     @Override
     public void onBackPressed() {
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.dl_nearby_drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
@@ -168,16 +168,16 @@ public class NearbyCafeActivity extends CyclerActivity
         } else if (id == R.id.nav_written) {
             //todo
         }
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.dl_nearby_drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
 
     public void init(){
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.tb_nearby_toolbar);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab_nearby_floatingbutton);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -185,13 +185,13 @@ public class NearbyCafeActivity extends CyclerActivity
             }
         });
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.dl_nearby_drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.setDrawerListener(toggle);
         toggle.syncState();
 
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        NavigationView navigationView = (NavigationView) findViewById(R.id.nv_nearby_nav_view);
         navigationView.setNavigationItemSelectedListener(this);
     }
 }
