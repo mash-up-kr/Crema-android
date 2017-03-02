@@ -5,6 +5,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.location.*;
 import android.os.Bundle;
 import android.support.annotation.BinderThread;
 import android.support.annotation.Nullable;
@@ -22,11 +23,15 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bigstark.cycler.CyclerActivity;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 import butterknife.BindDimen;
 import butterknife.BindDrawable;
@@ -48,13 +53,20 @@ import retrofit2.Response;
  */
 
 public class NearbyCafeActivity extends CyclerActivity
-        implements NavigationView.OnNavigationItemSelectedListener{
+        implements NavigationView.OnNavigationItemSelectedListener {
 
     Context mContext;
 
     RecyclerView recyclerView;
     RecyclerView.Adapter adapter;
     RecyclerView.LayoutManager layoutManager;
+    LocationManager locationmanager;
+
+    TextView tvAddr;
+
+    Double latitude = 0.0;
+    Double longtitude = 0.0;
+
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -76,20 +88,19 @@ public class NearbyCafeActivity extends CyclerActivity
                         Log.d("xxx", "cancel");
                     }
                 });
-
-        if(result == PermissionRequester.ALREADY_GRANTED){
-            Log.d("result","already granted");
-            if(ActivityCompat.checkSelfPermission(NearbyCafeActivity.this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED){
-                //todo 권한이 이미존재함
-            }
-            else if(result == PermissionRequester.NOT_SUPPORT_VERSION){
-                //todo 마시멜로우 이상 버젼 아님
-            }
-            else if(result==PermissionRequester.REQUEST_PERMISSION){
-                //todo 요청함 응답기다림
-            }
+        Log.e("Permission", result + " / " + PermissionRequester.ALREADY_GRANTED);
+        if (result == PermissionRequester.ALREADY_GRANTED) {
+            //      Log.d("result", "already granted");
+            //    if (ActivityCompat.checkSelfPermission(NearbyCafeActivity.this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
+            startLocationService();
+            //todo 권한이 이미존재함
+        } else if (result == PermissionRequester.NOT_SUPPORT_VERSION) {
+            startLocationService();
+            //todo 마시멜로우 이상 버젼 아님
+        } else if (result == PermissionRequester.REQUEST_PERMISSION) {
+            //todo 요청함 응답기다림
         }
-
+        //   }
 
 
         mContext = getApplicationContext();
@@ -107,7 +118,7 @@ public class NearbyCafeActivity extends CyclerActivity
                         BaseListModel<CafeModel> body = response.body();
                         List<CafeModel> datas = body.getDatas();
 
-                        adapter = new CafeListAdapter(datas,mContext);
+                        adapter = new CafeListAdapter(datas, mContext);
                         recyclerView.setAdapter(adapter);
                     }
 
@@ -173,7 +184,7 @@ public class NearbyCafeActivity extends CyclerActivity
         return true;
     }
 
-    public void init(){
+    public void init() {
         Toolbar toolbar = (Toolbar) findViewById(R.id.tb_nearby_toolbar);
         setSupportActionBar(toolbar);
 
@@ -193,5 +204,67 @@ public class NearbyCafeActivity extends CyclerActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nv_nearby_nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        tvAddr = (TextView) findViewById(R.id.tv_nearby_addr);
+
     }
+
+    private void startLocationService() {
+        locationmanager = (LocationManager) getApplicationContext().getSystemService(Context.LOCATION_SERVICE);
+        Log.e("startLocationService", "startLocationService");
+        long minTime = 1000;
+        float minDistance = 1;
+
+        if (ActivityCompat.checkSelfPermission(NearbyCafeActivity.this,
+                Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            return;
+        }
+        locationmanager.requestLocationUpdates(LocationManager.GPS_PROVIDER, minTime, minDistance, mLocationListener);
+//        locationmanager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, minTime, minDistance, mLocationListener);
+        Criteria c = new Criteria();
+        //최적의 하드웨어 이름을 리턴받는다.
+        //  String provider = locationmanager.getBestProvider(c, true);
+        //   Location location = locationmanager.getLastKnownLocation(provider);
+        //   Log.e("onLocationChanged", location.getLatitude() + " / " + location.getLongitude());
+    }
+
+    private void stopLocationService() {
+        if (ActivityCompat.checkSelfPermission(NearbyCafeActivity.this,
+                Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            return;
+        }
+        locationmanager.removeUpdates(mLocationListener);
+    }
+
+    private final LocationListener mLocationListener = new LocationListener() {
+        @Override
+        public void onLocationChanged(Location location) {
+            latitude = location.getLatitude();
+            longtitude = location.getLongitude();
+
+            if (tvAddr != null)
+                tvAddr.setText(latitude + "  " + longtitude);
+            Log.e("onLocationChanged", "===== On Location Changed ===== ");
+            Log.e("onLocationChanged", location.getLatitude() + " / " + location.getLongitude());
+
+            tvAddr.setText( location.getLatitude()+"  "+location.getLongitude());
+            stopLocationService();
+        }
+
+        @Override
+        public void onStatusChanged(String provider, int status, Bundle extras) {
+
+        }
+
+        @Override
+        public void onProviderEnabled(String provider) {
+
+        }
+
+        @Override
+        public void onProviderDisabled(String provider) {
+
+        }
+    };
+
 }

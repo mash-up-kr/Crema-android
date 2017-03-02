@@ -36,7 +36,8 @@
 
         </activity>
 
-        <activity android:name=".app.sign.SignInActivity">
+        <activity android:name=".app.sign.SignInActivity"
+            android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="kr.co.mash_up.crema.SignInActivity" />
 

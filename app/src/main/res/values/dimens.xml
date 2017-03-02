@@ -5,4 +5,9 @@
 
     <dimen name="splash_width_title">200dp</dimen>
     <dimen name="splash_height_title">800dp</dimen>
+
+    <dimen name="sign_in_width_title">120dp</dimen>
+    <dimen name="sign_in_height_title">50dp</dimen>
+    <dimen name="sign_in_width_email_img">15dp</dimen>
+    <dimen name="sign_in_height_email_img">15dp</dimen>
 </resources>

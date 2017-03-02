@@ -4,20 +4,33 @@
     android:layout_height="match_parent"
     android:gravity="center"
     android:orientation="vertical"
+    android:background="@drawable/background_picture"
     >
 
     <ImageView
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:src="@drawable/cafe_main"/>
+        android:layout_width="@dimen/sign_in_width_title"
+        android:layout_height="@dimen/sign_in_height_title"
+        android:src="@drawable/title_crema"/>
 
-    <EditText
-        android:id="@+id/et_sign_in_email"
+    <LinearLayout
+        android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:inputType="textEmailAddress"
-        android:hint="@string/sign_in_hint_email"
-        />
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:layout_width="@dimen/sign_in_width_email_img"
+            android:layout_height="@dimen/sign_in_height_email_img"
+            android:src="@drawable/icon_email"/>
+        <EditText
+            android:id="@+id/et_sign_in_email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textEmailAddress"
+            android:hint="@string/sign_in_hint_email"
+            android:background="@color/white_two"
+            />
+    </LinearLayout>
+
 
     <EditText
         android:id="@+id/et_sign_in_password"
@@ -25,6 +38,7 @@
         android:layout_height="wrap_content"
         android:inputType="textPassword"
         android:hint="@string/sign_in_hint_pw"
+        android:background="@color/white_two"
         />
 
     <Button
