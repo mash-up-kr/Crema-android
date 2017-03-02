@@ -36,7 +36,8 @@
 
         </activity>
 
-        <activity android:name=".app.sign.SignInActivity">
+        <activity android:name=".app.sign.SignInActivity"
+            android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="kr.co.mash_up.crema.SignInActivity" />
 
@@ -54,7 +55,13 @@
 
         <activity
             android:name=".app.activity.NearbyCafeActivity"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="kr.co.mash_up.crema.NearbyCafeActivity" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
 
         <activity android:name=".app.activity.WriteReviewActivity"></activity>
     </application>

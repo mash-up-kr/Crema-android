@@ -39,7 +39,7 @@ public class SplashActivity extends Activity {
 
     @OnUi(delay = 3000)
     private void startHomeActivity() {
-        Intent intent = new Intent(Defines.INTENT_HOME_ACTIVITY);
+        Intent intent = new Intent(Defines.INTENT_NEARBY_CAFE_ACTIVITY);
         startActivity(intent);
         finish();
     }

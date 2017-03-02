@@ -12,14 +12,20 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import kr.co.mash_up.crema.R;
 import kr.co.mash_up.crema.UserManager;
+import kr.co.mash_up.crema.model.BaseListModel;
+import kr.co.mash_up.crema.model.cafe.CafeModel;
 import kr.co.mash_up.crema.model.error.ErrorModel;
 import kr.co.mash_up.crema.model.user.AccessTokenModel;
 import kr.co.mash_up.crema.model.user.UserModel;
 import kr.co.mash_up.crema.model.user.command.UserLoginCommand;
 import kr.co.mash_up.crema.rest.CremaClient;
+import kr.co.mash_up.crema.rest.cafe.CafeService;
 import kr.co.mash_up.crema.rest.user.UserService;
 import kr.co.mash_up.crema.util.Defines;
 import kr.co.mash_up.crema.util.ToastUtil;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 import rx.Observer;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
@@ -86,6 +92,7 @@ public class SignInActivity extends CyclerActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.sign_in_main);
         setUnbinder(ButterKnife.bind(this));
+
     }
 
 
@@ -95,7 +102,7 @@ public class SignInActivity extends CyclerActivity {
             public void onSuccess2getMe(UserModel user) {
                 // start home activity
 
-                Intent intent = new Intent(Defines.INTENT_HOME_ACTIVITY);
+                Intent intent = new Intent(Defines.INTENT_NEARBY_CAFE_ACTIVITY);
                 startActivity(intent);
                 finish();
             }

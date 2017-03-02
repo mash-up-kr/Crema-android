@@ -1,6 +1,8 @@
 package kr.co.mash_up.crema.app.adapter;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,7 +12,12 @@ import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.io.BufferedInputStream;
+import java.net.URI;
+import java.net.URL;
+import java.net.URLConnection;
 import java.util.ArrayList;
+import java.util.List;
 
 import kr.co.mash_up.crema.R;
 import kr.co.mash_up.crema.model.cafe.CafeModel;
@@ -21,12 +28,12 @@ import kr.co.mash_up.crema.model.cafe.CafeModel;
 
 public class CafeListAdapter extends RecyclerView.Adapter<CafeListAdapter.ViewHolder>{
     private Context context;
-    private ArrayList<CafeModel> mItems;
+    private List<CafeModel> mItems;
 
     // Allows to remember the last item shown on screen
     private int lastPosition = -1;
 
-    public CafeListAdapter(ArrayList<CafeModel> items, Context mContext)
+    public CafeListAdapter(List<CafeModel> items, Context mContext)
     {
         mItems = items;
         context = mContext;
@@ -46,10 +53,21 @@ public class CafeListAdapter extends RecyclerView.Adapter<CafeListAdapter.ViewHo
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
 
-//        holder.main.setImageResource(mItems.get(position).getImg());
-//        holder.name.setText(mItems.get(position).getName());
-//        holder.addr.setText(mItems.get(position).getAddr());
-//        holder.hours.setText(mItems.get(position).getHours());
+        try {
+            URL url = new URL(mItems.get(position).getThumbnail().getUrl());
+            URLConnection conn = url.openConnection();
+            conn.connect();
+            BufferedInputStream bis = new BufferedInputStream(conn.getInputStream());
+            Bitmap bm = BitmapFactory.decodeStream(bis);
+            bis.close();
+            holder.main.setImageBitmap(bm);
+        } catch (Exception e) {
+
+        }
+
+        holder.name.setText(mItems.get(position).getName());
+        holder.addr.setText(mItems.get(position).getLocation().getAddress());
+        holder.hours.setText(mItems.get(position).isOpened()+"");
 
         setAnimation(holder.main, position);
     }
@@ -69,10 +87,10 @@ public class CafeListAdapter extends RecyclerView.Adapter<CafeListAdapter.ViewHo
 
         public ViewHolder(View view) {
             super(view);
-            main=(ImageView)view.findViewById(R.id.iv_main) ;
-            name=(TextView)view.findViewById(R.id.tv_main);
-            addr=(TextView)view.findViewById(R.id.tv_addr);
-            hours=(TextView)view.findViewById(R.id.tv_hours);
+            main=(ImageView)view.findViewById(R.id.iv_review_icon_main_img) ;
+            name=(TextView)view.findViewById(R.id.tv_review_icon_name);
+            addr=(TextView)view.findViewById(R.id.tv_review_icon_addr);
+            hours=(TextView)view.findViewById(R.id.tv_review_icon_hours);
         }
     }
 
@@ -86,6 +104,4 @@ public class CafeListAdapter extends RecyclerView.Adapter<CafeListAdapter.ViewHo
             lastPosition = position;
         }
     }
-
-
 }

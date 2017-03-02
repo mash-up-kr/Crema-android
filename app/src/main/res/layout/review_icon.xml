@@ -2,10 +2,11 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="horizontal"
     android:layout_width="match_parent"
-    android:layout_height="131dp">
+    android:layout_height="131dp"
+    android:layout_margin="5dp">
 
     <ImageView
-        android:id="@+id/iv_main"
+        android:id="@+id/iv_review_icon_main_img"
         android:layout_width="131dp"
         android:layout_height="131dp"
         android:scaleType="fitXY"
@@ -19,7 +20,7 @@
         android:layout_marginTop="14.7dp">
 
         <TextView
-            android:id="@+id/tv_main"
+            android:id="@+id/tv_review_icon_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="10sp"
@@ -34,9 +35,9 @@
             <ImageView
                 android:layout_width="11dp"
                 android:layout_height="11dp"
-                android:src="@drawable/cafe_main"/>
+                android:src="@drawable/icon_location"/>
             <TextView
-                android:id="@+id/tv_addr"
+                android:id="@+id/tv_review_icon_addr"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="11.7dp"
@@ -53,9 +54,9 @@
             <ImageView
                 android:layout_width="11dp"
                 android:layout_height="11dp"
-                android:src="@drawable/cafe_main"/>
+                android:src="@drawable/icon_time"/>
             <TextView
-                android:id="@+id/tv_hours"
+                android:id="@+id/tv_review_icon_hours"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="11.7dp"

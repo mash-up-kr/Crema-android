@@ -2,41 +2,90 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/background_picture"
     android:gravity="center"
-    android:orientation="vertical"
-    >
+    android:orientation="vertical">
 
     <ImageView
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:src="@drawable/cafe_main"/>
+        android:layout_width="@dimen/sign_in_width_title"
+        android:layout_height="@dimen/sign_in_height_title"
+        android:src="@drawable/title_crema"
+        android:layout_marginTop="100dp"
+        android:layout_marginBottom="83dp"/>
 
-    <EditText
-        android:id="@+id/et_sign_in_email"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:inputType="textEmailAddress"
-        android:hint="@string/sign_in_hint_email"
-        />
+        android:layout_marginLeft="32dp"
+        android:layout_marginRight="32dp"
+        android:orientation="vertical">
 
-    <EditText
-        android:id="@+id/et_sign_in_password"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:inputType="textPassword"
-        android:hint="@string/sign_in_hint_pw"
-        />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="@dimen/sign_in_height_email_img"
+                android:layout_weight="0.3"
+                android:src="@drawable/icon_email" />
+
+            <EditText
+                android:id="@+id/et_sign_in_email"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/sign_in_height_email_et"
+                android:layout_weight="1"
+                android:background="@color/white_two"
+                android:hint="@string/sign_in_hint_email"
+                android:inputType="textEmailAddress" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="@dimen/sign_in_height_email_img"
+                android:layout_weight="0.3"
+                android:src="@drawable/icon_password" />
+
+            <EditText
+                android:id="@+id/et_sign_in_password"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/sign_in_height_password_et"
+                android:layout_weight="1"
+                android:background="@color/white_two"
+                android:hint="@string/sign_in_hint_pw"
+                android:inputType="textPassword" />
+        </LinearLayout>
+
+    </LinearLayout>
 
     <Button
         android:id="@+id/btn_sign_in_login"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/sign_in_btn_login"/>
+        android:layout_marginTop="15dp"
+        android:text="@string/sign_in_btn_login" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="@string/sign_in_tv_no"
+        android:textColor="@color/white_two"
+        android:layout_marginTop="30dp"
+        android:textSize="20sp"
+        android:gravity="center"/>
 
     <Button
         android:id="@+id/btn_sign_in_sign_up"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/sign_in_btn_sign_up"/>
+        android:text="@string/sign_in_btn_sign_up"
+        android:layout_marginTop="5dp"
+        android:textColor="@color/black_two"/>
 
 </LinearLayout>
