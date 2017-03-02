@@ -8,6 +8,12 @@
 
     <dimen name="sign_in_width_title">120dp</dimen>
     <dimen name="sign_in_height_title">50dp</dimen>
-    <dimen name="sign_in_width_email_img">15dp</dimen>
-    <dimen name="sign_in_height_email_img">15dp</dimen>
+    <dimen name="sign_in_width_email_img">40dp</dimen>
+    <dimen name="sign_in_height_email_img">40dp</dimen>
+    <dimen name="sign_in_width_email_et">340dp</dimen>
+    <dimen name="sign_in_height_email_et">40dp</dimen>
+    <dimen name="sign_in_width_password_img">40dp</dimen>
+    <dimen name="sign_in_height_password_img">40dp</dimen>
+    <dimen name="sign_in_width_password_et">340dp</dimen>
+    <dimen name="sign_in_height_password_et">40dp</dimen>
 </resources>

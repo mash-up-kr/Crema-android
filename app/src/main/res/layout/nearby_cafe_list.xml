@@ -27,7 +27,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
                 android:background="?attr/colorPrimary"
-                app:popupTheme="@style/AppTheme.PopupOverlay" />
+                app:popupTheme="@style/AppTheme.PopupOverlay">
+
+            </android.support.v7.widget.Toolbar>
 
         </android.support.design.widget.AppBarLayout>
 
@@ -35,21 +37,26 @@
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:gravity="center"
             app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
             <LinearLayout
                 android:layout_width="wrap_content"
-                android:layout_height="48dp">
+                android:layout_height="48dp"
+                android:gravity="center">
 
                 <TextView
                     android:id="@+id/tv_nearby_addr"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="위치를 가져올 수 없습니다"/>
+                    android:text="위치를 가져올 수 없습니다"
+                    />
 
                 <ImageView
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="2dp"
+                    android:src="@drawable/button_triangle"/>
 
             </LinearLayout>
 

@@ -14,8 +14,10 @@ import android.support.design.widget.NavigationView;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.view.menu.MenuBuilder;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
@@ -74,7 +76,6 @@ public class NearbyCafeActivity extends CyclerActivity
         setContentView(R.layout.nearby_cafe_list);
 
         init();
-
 
         int result = new PermissionRequester.Builder(NearbyCafeActivity.this)
                 .setTitle("권한 요청")
@@ -149,7 +150,7 @@ public class NearbyCafeActivity extends CyclerActivity
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main, menu);
+        getMenuInflater().inflate(R.menu.nearcafemenu, menu);
         return true;
     }
 
@@ -161,9 +162,11 @@ public class NearbyCafeActivity extends CyclerActivity
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
+//        if (id == R.id.action_search) {
+//            Intent intent = new Intent();
+//
+//            return true;
+//        }
 
         return super.onOptionsItemSelected(item);
     }
@@ -195,6 +198,8 @@ public class NearbyCafeActivity extends CyclerActivity
                 startActivity(new Intent(NearbyCafeActivity.this, WriteReviewActivity.class));
             }
         });
+
+
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.dl_nearby_drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
