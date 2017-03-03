@@ -63,6 +63,24 @@
             </intent-filter>
         </activity>
 
+        <activity
+            android:name=".app.pick.PickCafeActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="kr.co.mash_up.crema.PickCafeActivity" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".app.myCafe.MyCafeActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="kr.co.mash_up.crema.MyCafeActivity" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
         <activity android:name=".app.activity.WriteReviewActivity"></activity>
     </application>
 

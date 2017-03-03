@@ -10,6 +10,9 @@ public class Defines {
     public static final String INTENT_SIGN_IN_ACTIVITY = "kr.co.mash_up.crema.SignInActivity";
     public static final String INTENT_SIGN_UP_ACTIVITY = "kr.co.mash_up.crema.SignUpActivity";
     public static final String INTENT_NEARBY_CAFE_ACTIVITY = "kr.co.mash_up.crema.NearbyCafeActivity";
+    public static final String INTENT_PICK_CAFE_ACTIVITY = "kr.co.mash_up.crema.PickCafeActivity";
+    public static final String INTENT_MY_CAFE_ACTIVITY = "kr.co.mash_up.crema.MyCafeActivity";
+
 
     public static final String HAWK_KEY_ACCESS_TOKEN = "accessToken";
     public static final String HAWK_KEY_ME = "me";
