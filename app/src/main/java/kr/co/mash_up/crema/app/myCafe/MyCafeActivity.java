@@ -51,7 +51,7 @@ public class MyCafeActivity extends CyclerActivity
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.pick_cafe_list);
+        setContentView(R.layout.mycafe_list);
 
         init();
 
@@ -146,16 +146,8 @@ public class MyCafeActivity extends CyclerActivity
 
     public void init() {
         Toolbar toolbar = (Toolbar) findViewById(R.id.tb_nearby_toolbar);
+        toolbar.setTitle("내가 쓴 리뷰");
         setSupportActionBar(toolbar);
-
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab_nearby_floatingbutton);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(MyCafeActivity.this, WriteReviewActivity.class));
-            }
-        });
-
 
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.dl_nearby_drawer_layout);

@@ -3,27 +3,105 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center">
+    android:background="@drawable/background_picture"
+    android:gravity="center"
+    >
 
-    <EditText
-        android:id="@+id/et_sign_up_email"
+    <ImageView
+        android:layout_width="@dimen/sign_in_width_title"
+        android:layout_height="@dimen/sign_in_height_title"
+        android:src="@drawable/title_crema"
+        android:layout_marginTop="50dp"
+        android:layout_marginBottom="70dp"
+        android:layout_marginLeft="@dimen/sign_up_margin_et"
+        android:layout_marginRight="@dimen/sign_up_margin_et"/>
+
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/sign_up_hint_email"/>
-    <EditText
-        android:id="@+id/et_sign_up_password"
+        android:layout_height="@dimen/sign_up_height_et"
+        android:background="@drawable/rounded_rectangle_white"
+        android:orientation="horizontal"
+        android:layout_marginLeft="@dimen/sign_up_margin_et"
+        android:layout_marginRight="@dimen/sign_up_margin_et"
+        android:layout_marginBottom="@dimen/sign_up_margin_bottom_et">
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="@dimen/sign_up_height_img"
+            android:layout_weight="0.3"
+            android:layout_gravity="center"
+            android:src="@drawable/icon_email" />
+
+        <EditText
+            android:id="@+id/et_sign_up_email"
+            android:layout_gravity="center"
+            android:background="@null"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/sign_up_height_et"
+            android:layout_weight="1"
+            android:hint="E-mail"
+            android:inputType="textEmailAddress" />
+    </LinearLayout>
+
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/sign_up_hint_password"/>
-    <EditText
-        android:id="@+id/et_sign_up_password_check"
+        android:layout_height="@dimen/sign_up_height_et"
+        android:background="@drawable/rounded_rectangle_white"
+        android:orientation="horizontal"
+        android:layout_marginLeft="@dimen/sign_up_margin_et"
+        android:layout_marginRight="@dimen/sign_up_margin_et"
+        android:layout_marginBottom="@dimen/sign_up_margin_bottom_et">
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="@dimen/sign_up_height_img"
+            android:layout_weight="0.3"
+            android:layout_gravity="center"
+            android:src="@drawable/icon_password" />
+
+        <EditText
+            android:id="@+id/et_sign_up_password"
+            android:background="@null"
+            android:layout_gravity="center"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/sign_up_height_et"
+            android:layout_weight="1"
+            android:hint="@string/sign_up_hint_password"/>
+    </LinearLayout>
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/sign_up_hint_password_check"/>
+        android:layout_height="@dimen/sign_up_height_et"
+        android:background="@drawable/rounded_rectangle_white"
+        android:orientation="horizontal"
+        android:layout_marginLeft="@dimen/sign_up_margin_et"
+        android:layout_marginRight="@dimen/sign_up_margin_et">
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="@dimen/sign_up_height_img"
+            android:layout_weight="0.3"
+            android:layout_gravity="center"
+            android:src="@drawable/icon_password_check" />
+
+        <EditText
+            android:id="@+id/et_sign_up_password_check"
+            android:background="@null"
+            android:layout_gravity="center"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/sign_up_height_et"
+            android:layout_weight="1"
+            android:hint="@string/sign_up_hint_password_check"/>
+    </LinearLayout>
     <Button
         android:id="@+id/btn_sign_up_sign_up"
+        android:background="@drawable/rounded_rectangle_brown"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="@dimen/sign_up_height_et"
+        android:layout_marginTop="@dimen/sign_up_margin_top_button"
+        android:layout_marginLeft="@dimen/sign_up_margin_et"
+        android:layout_marginRight="@dimen/sign_up_margin_et"
+        android:textColor="@color/white_two"
+        android:textSize="20sp"
         android:text="@string/sign_up_btn_sign_up"/>
 
 

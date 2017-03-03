@@ -146,17 +146,8 @@ public class PickCafeActivity extends CyclerActivity
 
     public void init() {
         Toolbar toolbar = (Toolbar) findViewById(R.id.tb_nearby_toolbar);
+        toolbar.setTitle("내가 담은 카페");
         setSupportActionBar(toolbar);
-
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab_nearby_floatingbutton);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(PickCafeActivity.this, WriteReviewActivity.class));
-            }
-        });
-
-
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.dl_nearby_drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(

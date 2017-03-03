@@ -182,8 +182,7 @@ public class NearbyCafeActivity extends CyclerActivity
             Intent intent = new Intent(Defines.INTENT_NEARBY_CAFE_ACTIVITY);
             startActivity(intent);
             finish();
-        }
-        else if (id == R.id.nav_picked) {
+        } else if (id == R.id.nav_picked) {
             Intent intent = new Intent(Defines.INTENT_PICK_CAFE_ACTIVITY);
             startActivity(intent);
             finish();
@@ -208,8 +207,6 @@ public class NearbyCafeActivity extends CyclerActivity
                 startActivity(new Intent(NearbyCafeActivity.this, WriteReviewActivity.class));
             }
         });
-
-
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.dl_nearby_drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -258,7 +255,7 @@ public class NearbyCafeActivity extends CyclerActivity
             longtitude = location.getLongitude();
 
             if (tvAddr != null)
-                tvAddr.setText(latitude + "  " + longtitude);
+                tvAddr.setText("위도: "+latitude + "  경도 " + longtitude);
             Log.e("onLocationChanged", "===== On Location Changed ===== ");
             Log.e("onLocationChanged", location.getLatitude() + " / " + location.getLongitude());
 
