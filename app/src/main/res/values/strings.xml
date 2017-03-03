@@ -20,4 +20,8 @@
     <string name="sign_up_hint_password_check">비밀번호 재확인</string>
     <string name="sign_up_btn_sign_up">회원가입</string>
 
+    <string name="search_region_title">지도로 위치 지정</string>
+    <string name="search_region_btn_ok">확인</string>
+    <string name="search_region_btn_search">검색</string>
+
 </resources>

@@ -16,4 +16,6 @@
     <dimen name="sign_in_height_password_img">40dp</dimen>
     <dimen name="sign_in_width_password_et">340dp</dimen>
     <dimen name="sign_in_height_password_et">40dp</dimen>
+
+    <dimen name="underline">0.5dp</dimen>
 </resources>

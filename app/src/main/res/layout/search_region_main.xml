@@ -1,16 +1,97 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <com.google.android.gms.maps.MapView
-        xmlns:map="http://schemas.android.com/apk/res-auto"
-        android:id="@+id/mv_search_region"
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/colorPrimary"
+        >
+
+        <FrameLayout
+            android:id="@+id/btn_search_region_search"
+            android:layout_width="wrap_content"
+            android:layout_height="?attr/actionBarSize"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            >
+
+            <ImageView
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:src="@drawable/icon_search"
+                android:layout_gravity="center"
+                />
+
+        </FrameLayout>
+
+        <EditText
+            android:id="@+id/et_search_region"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_toLeftOf="@id/btn_search_region_search"
+            android:layout_toStartOf="@id/btn_search_region_search"
+            android:layout_marginTop="12dp"
+            android:layout_marginBottom="12dp"
+            android:layout_marginLeft="20dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:background="@drawable/shape_search_background"
+            android:minLines="1"
+            android:maxLines="1"
+            android:gravity="center"
+            android:inputType="text"
+            android:hint="주소를 입력해주세요"
+            android:textColor="@color/colorSearchText"
+            android:textSize="13sp"
+            />
+    </RelativeLayout>
+
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        map:mapType="normal"
-        />
+        >
+
+        <com.google.android.gms.maps.MapView
+            xmlns:map="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/mv_search_region"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            map:mapType="normal"
+            />
+
+        <View
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_centerInParent="true"
+            android:background="@drawable/shape_search_place_circle"
+            />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:src="@drawable/icon_location"
+            />
+
+        <TextView
+            android:id="@+id/btn_search_region_ok"
+            android:layout_width="match_parent"
+            android:layout_height="46dp"
+            android:layout_alignParentBottom="true"
+            android:background="@color/colorPrimary"
+            android:gravity="center"
+            android:text="@string/search_region_btn_ok"
+            android:textSize="16sp"
+            android:textColor="@android:color/white"
+            android:textStyle="bold"
+            />
+
+    </RelativeLayout>
 
 
-</FrameLayout>
+</LinearLayout>
