@@ -1,6 +1,7 @@
 package kr.co.mash_up.crema.app.search;
 
 import android.content.Context;
+import android.content.Intent;
 import android.location.Address;
 import android.location.Geocoder;
 import android.location.Location;
@@ -34,6 +35,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import kr.co.mash_up.crema.R;
+import kr.co.mash_up.crema.util.Defines;
 import kr.co.mash_up.crema.util.ToastUtil;
 
 /**
@@ -67,7 +69,6 @@ public class SearchRegionActivity extends CyclerActivity implements OnMapReadyCa
                 Address address = addressList.get(0);
                 LatLng center = new LatLng(address.getLatitude(), address.getLongitude());
                 map.moveCamera(CameraUpdateFactory.newLatLngZoom(center, 16));
-
             }
         } catch (IOException e) {}
 
@@ -76,6 +77,13 @@ public class SearchRegionActivity extends CyclerActivity implements OnMapReadyCa
 
     @OnClick(R.id.btn_search_region_ok)
     void onOkClicked() {
+        LatLng latlng = map.getCameraPosition().target;
+
+        Intent intent = new Intent();
+        intent.putExtra(Defines.KEY_LATITUDE, latlng.latitude);
+        intent.putExtra(Defines.KEY_LONGITUDE, latlng.longitude);
+        setResult(RESULT_OK, intent);
+
         finish();
     }
 
