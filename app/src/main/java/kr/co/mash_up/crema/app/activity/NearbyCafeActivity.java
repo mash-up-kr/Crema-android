@@ -46,6 +46,7 @@ import kr.co.mash_up.crema.model.BaseListModel;
 import kr.co.mash_up.crema.model.cafe.CafeModel;
 import kr.co.mash_up.crema.rest.CremaClient;
 import kr.co.mash_up.crema.rest.cafe.CafeService;
+import kr.co.mash_up.crema.util.Defines;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -177,10 +178,18 @@ public class NearbyCafeActivity extends CyclerActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_packed) {
-            // todo
+        if(id==R.id.nav_nearby){
+            Intent intent = new Intent(Defines.INTENT_NEARBY_CAFE_ACTIVITY);
+            startActivity(intent);
+            finish();
+        } else if (id == R.id.nav_picked) {
+            Intent intent = new Intent(Defines.INTENT_PICK_CAFE_ACTIVITY);
+            startActivity(intent);
+            finish();
         } else if (id == R.id.nav_written) {
-            //todo
+            Intent intent = new Intent(Defines.INTENT_MY_CAFE_ACTIVITY);
+            startActivity(intent);
+            finish();
         }
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.dl_nearby_drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
@@ -198,8 +207,6 @@ public class NearbyCafeActivity extends CyclerActivity
                 startActivity(new Intent(NearbyCafeActivity.this, WriteReviewActivity.class));
             }
         });
-
-
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.dl_nearby_drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -248,7 +255,7 @@ public class NearbyCafeActivity extends CyclerActivity
             longtitude = location.getLongitude();
 
             if (tvAddr != null)
-                tvAddr.setText(latitude + "  " + longtitude);
+                tvAddr.setText("위도: "+latitude + "  경도 " + longtitude);
             Log.e("onLocationChanged", "===== On Location Changed ===== ");
             Log.e("onLocationChanged", location.getLatitude() + " / " + location.getLongitude());
 

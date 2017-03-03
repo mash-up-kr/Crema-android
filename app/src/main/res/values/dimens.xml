@@ -6,14 +6,21 @@
     <dimen name="splash_width_title">200dp</dimen>
     <dimen name="splash_height_title">800dp</dimen>
 
-    <dimen name="sign_in_width_title">120dp</dimen>
-    <dimen name="sign_in_height_title">50dp</dimen>
-    <dimen name="sign_in_width_email_img">40dp</dimen>
-    <dimen name="sign_in_height_email_img">40dp</dimen>
+    <dimen name="sign_in_width_title">180dp</dimen>
+    <dimen name="sign_in_height_title">70dp</dimen>
+    <dimen name="sign_in_width_email_img">20dp</dimen>
+    <dimen name="sign_in_height_email_img">20dp</dimen>
     <dimen name="sign_in_width_email_et">340dp</dimen>
     <dimen name="sign_in_height_email_et">40dp</dimen>
-    <dimen name="sign_in_width_password_img">40dp</dimen>
-    <dimen name="sign_in_height_password_img">40dp</dimen>
+    <dimen name="sign_in_width_password_img">20dp</dimen>
+    <dimen name="sign_in_height_password_img">20dp</dimen>
     <dimen name="sign_in_width_password_et">340dp</dimen>
     <dimen name="sign_in_height_password_et">40dp</dimen>
+
+    <dimen name="sign_up_height_et">50dp</dimen>
+    <dimen name="sign_up_margin_et">32dp</dimen>
+    <dimen name="sign_up_height_img">20dp</dimen>
+    <dimen name="sign_up_margin_bottom_et">5dp</dimen>
+    <dimen name="sign_up_margin_top_button">50dp</dimen>
+
 </resources>

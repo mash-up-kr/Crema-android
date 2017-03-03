@@ -3,7 +3,8 @@
     android:orientation="horizontal"
     android:layout_width="match_parent"
     android:layout_height="131dp"
-    android:layout_margin="5dp">
+    android:layout_margin="5dp"
+    android:background="@color/white_two">
 
     <ImageView
         android:id="@+id/iv_review_icon_main_img"
@@ -23,7 +24,7 @@
             android:id="@+id/tv_review_icon_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="10sp"
+            android:textSize="15sp"
             android:text="CAFE SEOJONG"
             />
 
@@ -41,7 +42,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="11.7dp"
-                android:textSize="7.3sp"
+                android:textSize="10sp"
                 android:textColor="@color/cocoa"
                 android:text="서울시 강남구 역삼동 12-3"/>
         </LinearLayout>
@@ -60,7 +61,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="11.7dp"
-                android:textSize="7.3sp"
+                android:textSize="10sp"
                 android:textColor="@color/cocoa"
                 android:text="평일 07:00 - 24:00\n주말 09:00 - 18:00"/>
         </LinearLayout>
