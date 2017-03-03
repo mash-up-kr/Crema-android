@@ -39,6 +39,8 @@ import butterknife.BindDimen;
 import butterknife.BindDrawable;
 import butterknife.BindView;
 import butterknife.BindViews;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
 import kr.co.mash_up.crema.app.adapter.CafeListAdapter;
 import kr.co.mash_up.crema.PermissionRequester;
 import kr.co.mash_up.crema.R;
@@ -46,6 +48,7 @@ import kr.co.mash_up.crema.model.BaseListModel;
 import kr.co.mash_up.crema.model.cafe.CafeModel;
 import kr.co.mash_up.crema.rest.CremaClient;
 import kr.co.mash_up.crema.rest.cafe.CafeService;
+import kr.co.mash_up.crema.util.Defines;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -69,11 +72,18 @@ public class NearbyCafeActivity extends CyclerActivity
     Double latitude = 0.0;
     Double longtitude = 0.0;
 
+    @OnClick(R.id.ll_nearby_addr)
+    void onAddrClicked() {
+        Intent intent = new Intent(Defines.INTENT_SEARCH_REGION_ACTIVITY);
+        startActivity(intent);
+    }
+
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.nearby_cafe_list);
+        setUnbinder(ButterKnife.bind(this));
 
         init();
 
@@ -101,7 +111,6 @@ public class NearbyCafeActivity extends CyclerActivity
         } else if (result == PermissionRequester.REQUEST_PERMISSION) {
             //todo 요청함 응답기다림
         }
-        //   }
 
 
         mContext = getApplicationContext();
