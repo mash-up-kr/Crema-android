@@ -15,6 +15,7 @@ public class Defines {
     public static final String INTENT_PICK_CAFE_ACTIVITY = "kr.co.mash_up.crema.PickCafeActivity";
     public static final String INTENT_MY_CAFE_ACTIVITY = "kr.co.mash_up.crema.MyCafeActivity";
     public static final String INTENT_SEARCH_REGION_ACTIVITY = "kr.co.mash_up.crema.SearchRegionActivity";
+    public static final String INTENT_SEARCH_CAFE_ACTIVITY = "kr.co.mash_up.crema.SearchCafeActivity";
 
     public static final String HAWK_KEY_ACCESS_TOKEN = "accessToken";
     public static final String HAWK_KEY_ME = "me";

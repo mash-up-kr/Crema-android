@@ -190,7 +190,8 @@ public class NearbyCafeActivity extends CyclerActivity
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(NearbyCafeActivity.this, WriteReviewActivity.class));
+                Intent intent = new Intent(Defines.INTENT_SEARCH_CAFE_ACTIVITY);
+                startActivity(intent);
             }
         });
 
